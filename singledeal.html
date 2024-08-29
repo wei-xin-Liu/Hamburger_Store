@@ -1,0 +1,1220 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Capybara Breakfast</title>
+    <link rel="stylesheet" href="./_css/bootstrap.css">
+    <script src="./_js/bootstrap.bundle.js"></script>
+
+    <!-- 外掛字體 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Itim&family=Noto+Serif+TC:wght@400;900&display=swap"
+        rel="stylesheet">
+
+
+    <!-- 利用外掛程式 -->
+    <!-- font awersome -->
+    <!-- 利用cdnjs.com -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+        integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <style>
+        .px-100 {
+            margin-left: 11%;
+            margin-right: 11%;
+        }
+
+        .bg-1 {
+            background-color: rgb(244, 235, 217);
+        }
+
+        .bg-2 {
+            background-color: #077a82;
+        }
+
+        .w-33 {
+            width: 33% !important;
+        }
+
+        .tag {
+            top: 0px;
+            right: 0px;
+            background-color: tomato;
+            margin: 0px;
+            padding: 10px;
+        }
+
+        .tag1 {
+            top: 0px;
+            left: 0px;
+            background-color: tomato;
+            margin: 0px;
+            padding: 10px;
+        }
+
+        #popular {
+            text-decoration: none;
+            color: black;
+            padding-top: 28px;
+            padding-bottom: 28px;
+            padding-right: 5px;
+            padding-left: 5px;
+        }
+
+        #popular:hover {
+            color: red;
+        }
+
+        #doubledeal {
+            text-decoration: none;
+            color: black;
+            padding-top: 28px;
+            padding-bottom: 28px;
+            padding-right: 5px;
+            padding-left: 5px;
+        }
+
+        #doubledeal:hover {
+            color: red;
+        }
+
+        #singledeal {
+            text-decoration: none;
+            background-color: brown;
+            color: white;
+            padding-top: 28px;
+            padding-bottom: 28px;
+            padding-right: 5px;
+            padding-left: 5px;
+
+        }
+
+        /* #singledeal:hover {
+            
+        } */
+
+        .mt-9 {
+            margin-top: 90px;
+        }
+
+        .fa-circle-chevron-right,
+        .fa-circle-chevron-left {
+            font-size: 40px;
+        }
+
+        .fa-bag-shopping {
+            color: black;
+            margin: 10px;
+            font-size: 40px;
+        }
+
+        .fa-bag-shopping:hover {
+            color: rgb(88, 10, 10);
+        }
+
+        .fa-magnifying-glass {
+            color: black;
+            margin: 10px;
+            font-size: 40px;
+        }
+
+        .fa-magnifying-glass:hover {
+            color: rgb(88, 10, 10);
+        }
+
+        .fa-user {
+            color: black;
+            margin: 10px;
+            font-size: 40px;
+        }
+
+        .fa-user-astronaut {
+            color: #077a82;
+            font-size: 100px;
+        }
+
+        .fa-user:hover {
+            color: rgb(88, 10, 10);
+        }
+
+        /* 也可以利用物件名字調整顏色 */
+        .fa-facebook:hover {
+            color: blue;
+        }
+
+        .fa-youtube:hover {
+            color: red;
+        }
+
+        .fa-line:hover {
+            color: green;
+        }
+
+        .fa-cart-shopping {
+            color: white;
+        }
+
+        .fa-coins {
+            color: #077a82;
+            position: absolute;
+            top: 20px;
+            left: 25px;
+            font-size: 36px;
+            /* margin-right: 50px; */
+        }
+        
+        #bag-num {
+            font-size: 14px;
+            color: white;
+            position: absolute;
+            border: solid red;
+            border-radius: 50%;
+            height: 20px;
+            width: 20px;
+            background: red;
+            top: 1px;
+            right: 1px;
+            padding: 2px;
+        }
+        /* ================================================ */
+        /*                     footer 頁尾                  */
+        /* ================================================ */
+        footer {
+            padding: 50px 30px;
+        }
+
+        .footer-logo {
+            text-align: center;
+            /* 行內元素置中，可在父層設定text-align: center */
+            font-size: 30px;
+            font-family: "Itim", cursive, "Noto Serif TC", serif;
+            color: brown;
+            font-weight: 900;
+        }
+
+        footer>.social-icon>a {
+            float: none;
+            margin: 5px;
+            line-height: 50px;
+            font-size: 30px;
+            color: rgb(88, 10, 10);
+        }
+
+        .copyright {
+            color: rgb(88, 10, 10)
+        }
+
+        .booking {
+            position: fixed;
+            background-color: black;
+            text-decoration: none;
+            right: 0px;
+            top: 50%;
+            margin-top: -42px;
+            /* 扣高度的一半回去 */
+            /* 另一個作法translet */
+            color: white;
+            padding: 20px;
+            display: block;
+            font-size: 18px;
+            font-weight: 900;
+            letter-spacing: .2px;
+        }
+
+        .pagetop {
+            position: fixed;
+            /* 固定定位 */
+            right: 10px;
+            bottom: 10px;
+            background-color: black;
+            text-decoration: none;
+            width: 80px;
+            line-height: 80px;
+            color: white;
+            display: block;
+            text-align: center;
+            border-radius: 100%;
+            /* 圓角 */
+        }
+
+
+
+
+
+
+
+
+
+
+        #myForm_div {
+            display: none;
+            position: fixed;
+            z-index: 9999;
+            width: 100%;
+            height: 100%;
+            left: 0;
+            top: 0;
+        }
+
+        .loadingP>p {
+            position: relative;
+            left: 50%;
+            top: 50%;
+            font-size: 30px;
+            color: white;
+            margin-top: -160px;
+            margin-left: -200px;
+            padding: 5em;
+        }
+
+
+        /* The popup form - hidden by default */
+        #myForm_div>.form-popup {
+            /* position: relative; */
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            z-index: 9999;
+        }
+
+        /* Style the button that is used to open and close the collapsible content */
+        .collapsible {
+            background-color: #eee;
+            color: #444;
+            cursor: pointer;
+            padding: 18px;
+            width: 100%;
+            border: none;
+            text-align: left;
+            outline: none;
+            font-size: 15px;
+        }
+
+        /* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
+        .active1,
+        .collapsible:hover {
+            background-color: #ccc;
+        }
+
+        /* Style the collapsible content. Note: hidden by default */
+        .content {
+            padding: 0 18px;
+            background-color: white;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.2s ease-out;
+        }
+
+        .collapsible:after {
+            font-family: "Font Awesome 5 Free";
+            font-weight: 900;
+            content: '\f107';
+            /* Unicode character for "plus" sign (+) */
+            font-size: 15px;
+            color: black;
+            float: right;
+            margin-left: 5px;
+        }
+
+        .active1:after {
+            font-family: "Font Awesome 5 Free";
+            font-weight: 900;
+            content: "\f106";
+            font-size: 15px;
+            /* Unicode character for "minus" sign (-) */
+        }
+
+
+
+
+
+
+
+
+
+
+
+        #loaddd {
+            display: none;
+        }
+
+        .loadingP {
+            position: fixed;
+            z-index: 9999;
+            width: 100%;
+            height: 100%;
+            left: 0;
+            top: 0;
+        }
+
+        .loadingP>p {
+            position: relative;
+            left: 50%;
+            top: 50%;
+            font-size: 30px;
+            color: white;
+            margin-top: -160px;
+            margin-left: -200px;
+            padding: 5em;
+        }
+
+
+        .loadingDiv {
+            position: fixed;
+            z-index: 9999;
+            width: 100%;
+            height: 100%;
+            left: 0;
+            top: 0;
+        }
+
+        .loadingDiv>div {
+            position: relative;
+            left: 50%;
+            top: 50%;
+            margin-top: -5em;
+            margin-left: -5em;
+            padding: 5em;
+        }
+
+
+        /* HTML: <div class="loader"></div> */
+        .loader {
+            width: 50px;
+            aspect-ratio: 1;
+            border-radius: 50%;
+            border: 8px solid lightblue;
+            border-right-color: orange;
+            animation: l2 1s infinite linear;
+        }
+
+        @keyframes l2 {
+            to {
+                transform: rotate(1turn)
+            }
+        }
+
+
+
+
+
+
+
+
+        /* Full-width input fields */
+        input[type=text],
+        input[type=password] {
+            width: 100%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+        }
+
+        /* Set a style for all buttons */
+        button {
+            background-color: #077a82;
+            color: white;
+            padding: 14px 20px;
+            margin: 8px 0;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        button:hover {
+            opacity: 0.8;
+        }
+
+        /* Extra styles for the cancel button */
+        .cancelbtn {
+            width: auto;
+            padding: 10px 18px;
+            background-color: brown;
+        }
+
+        /* Center the image and position the close button */
+        .imgcontainer {
+            text-align: center;
+            margin: 24px 0 12px 0;
+            position: relative;
+        }
+
+        img.avatar {
+            width: 40%;
+            border-radius: 50%;
+        }
+
+        .container {
+            padding: 16px;
+        }
+
+        span.psw {
+            float: right;
+            padding-top: 16px;
+        }
+
+        /* The Modal (background) */
+        .modal {
+            display: none;
+            /* Hidden by default */
+            position: fixed;
+            /* Stay in place */
+            z-index: 9999;
+            /* Sit on top */
+            left: 0;
+            top: 0;
+            width: 100%;
+            /* Full width */
+            height: 100%;
+            /* Full height */
+            overflow: auto;
+            /* Enable scroll if needed */
+            background-color: rgb(0, 0, 0);
+            /* Fallback color */
+            background-color: rgba(0, 0, 0, 0.4);
+            /* Black w/ opacity */
+            padding-top: 60px;
+        }
+
+        /* Modal Content/Box */
+        .modal-content {
+            background-color:  rgb(244, 235, 217);
+            margin: 5% auto 15% auto;
+            /* 5% from the top, 15% from the bottom and centered */
+            border: 1px solid #888;
+            width: 80%;
+            /* Could be more or less, depending on screen size */
+        }
+
+        /* The Close Button (x) */
+        .close {
+            position: absolute;
+            right: 25px;
+            top: 0;
+            color: #000;
+            font-size: 35px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: red;
+            cursor: pointer;
+        }
+
+        /* Add Zoom Animation */
+        .animate {
+            -webkit-animation: animatezoom 0.6s;
+            animation: animatezoom 0.6s
+        }
+
+        @-webkit-keyframes animatezoom {
+            from {
+                -webkit-transform: scale(0)
+            }
+
+            to {
+                -webkit-transform: scale(1)
+            }
+        }
+
+        @keyframes animatezoom {
+            from {
+                transform: scale(0)
+            }
+
+            to {
+                transform: scale(1)
+            }
+        }
+
+        /* Change styles for span and cancel button on extra small screens */
+        @media screen and (max-width: 300px) {
+            span.psw {
+                display: block;
+                float: none;
+            }
+
+            .cancelbtn {
+                width: 100%;
+            }
+        }
+
+
+
+
+
+
+
+
+
+        /* The sidebar menu */
+        .sidebar {
+            height: 100%;
+            /* 100% Full-height */
+            width: 0;
+            /* 0 width - change this with JavaScript */
+            position: fixed;
+            /* Stay in place */
+            z-index: 9999;
+            /* Stay on top */
+            top: 0;
+            right: 0;
+            background-color: #111;
+            /* Black*/
+            overflow-x: hidden;
+            /* Disable horizontal scroll */
+            padding-top: 60px;
+            /* Place content 60px from the top */
+            transition: 0.5s;
+            /* 0.5 second transition effect to slide in the sidebar */
+        }
+
+        /* The sidebar links */
+        .sidebar a {
+            padding: 8px 8px 8px 32px;
+            text-decoration: none;
+            font-size: 25px;
+            color: #818181;
+            display: block;
+            transition: 0.3s;
+        }
+
+        /* When you mouse over the navigation links, change their color */
+        .sidebar a:hover {
+            color: #f1f1f1;
+        }
+
+        /* Position and style the close button (top right corner) */
+        .sidebar .closebtn {
+            position: absolute;
+            top: 0;
+            right: 25px;
+            font-size: 36px;
+            margin-left: 50px;
+        }
+
+        /* The button used to open the sidebar */
+        .openbtn {
+            font-size: 20px;
+            cursor: pointer;
+            background-color: #111;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+        }
+
+        .openbtn:hover {
+            background-color: #444;
+        }
+
+        /* Style page content - use this if you want to push the page content to the right when you open the side navigation */
+        #boddy {
+            transition: margin-left .5s;
+            /* If you want a transition effect */
+            padding: 20px;
+        }
+
+        /* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+        @media screen and (max-height: 450px) {
+            .sidebar {
+                padding-top: 15px;
+            }
+
+            .sidebar a {
+                font-size: 18px;
+            }
+        }
+    </style>
+
+</head>
+
+<body class="bg-1" id="boddy">
+    <!-- 標題Logo位置 -->
+    <div id="blog_top" class="fixed-top py-4 px-100">
+        <header class="lh-1 py-2 bg-light">
+            <div class="row flex-nowrap justify-content-between align-items-center">
+                <div class="col-4 ">
+                    <a id="popular" href="./popular.html">熱門優惠</a>
+                    <a id="doubledeal" href="./doubledeal.html">個人套餐</a>
+                    <a id="singledeal" href="./singledeal.html">單點</a>
+                </div>
+                <div class="col-4 text-center">
+                    <a class="text-dark" href="./index.html">
+                        <img src="./images/capy/capybuger.png" style="width: 50px;" alt="">
+                    </a>
+                </div>
+                <div class="col-4 d-flex justify-content-end align-items-center">
+                    <a class="link-secondary" onclick="openNav()" style="position: relative;">
+                        <i class="fa-solid fa-bag-shopping"></i>
+                        <span id="bag-num">0</span>
+                    </a>
+                    <a class="link-secondary" onclick="openForm()">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                    </a>
+                    <a class="link-secondary" onclick="document.getElementById('id01').style.display='block'">
+                        <i class="fa-solid fa-user"></i>
+                    </a>
+                </div>
+            </div>
+        </header>
+    </div>
+
+
+
+    <div class="container mt-9">
+        <div id="carou" class="carousel slide" data-bs-ride="carousel" data-bs-interval="2000">
+
+            <div class="carousel-indicators">
+
+                <!-- data-bs-slide-to 數字0、1、2 代表輪播項目第一張 第二張 第三張 -->
+                <button type="button" data-bs-target="#carou" data-bs-slide-to="0" class="active" aria-current="true"
+                    aria-label="Slide 1"></button>
+
+                <button type="button" data-bs-target="#carou" data-bs-slide-to="1" aria-label="Slide 2"></button>
+
+                <button type="button" data-bs-target="#carou" data-bs-slide-to="2" aria-label="Slide 3"></button>
+
+                <button type="button" data-bs-target="#carou" data-bs-slide-to="3" aria-label="Slide 4"></button>
+
+            </div>
+
+            <div class="carousel-inner">
+                <div class="carousel-item active text-center">
+                    <!-- 圖片位置 -->
+                    <img src="images/Carousel/Carousel1.jpg" alt="" class="w-100">
+                </div>
+                <div class="carousel-item text-center">
+                    <!-- 圖片位置 -->
+                    <img src="images/Carousel/Carousel2.jpg" alt="" class="w-100">
+                </div>
+                <div class="carousel-item text-center">
+                    <!-- 圖片位置 -->
+                    <img src="images/Carousel/Carousel3.jpg" alt="" class="w-100">
+                </div>
+                <div class="carousel-item text-center">
+                    <!-- 圖片位置 -->
+                    <img src="images/Carousel/Carousel4.jpg" alt="" class="w-100">
+                </div>
+            </div>
+
+            <!-- carousel-control-prev  -->
+
+            <!-- data-bs-target 觸動的目標 -->
+            <!-- #carouselExampleControls 透過id 觸動的元素，就是最外層carousel， 所以須將最外層增加id -->
+
+            <!-- data-bs-slide -->
+
+            <!-- aria 無障礙屬性 -->
+
+            <button class="carousel-control-prev " type="button" data-bs-target="#carou" data-bs-slide="prev">
+                <i class="fa-solid fa-circle-chevron-left"></i>
+                <span class="visually-hidden">Previous</span>
+            </button>
+
+            <button class="carousel-control-next" type="button" data-bs-target="#carou" data-bs-slide="next">
+                <i class="fa-solid fa-circle-chevron-right"></i>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+
+    </div>
+
+    <div class="container clearfix">
+        <!-- 4欄排版.靠左浮動*4>.背景.內邊界>.寬100+標題 -->
+        <!-- .w-25.float-left*4>.bg-primary.p-3>img.w-100+p{產品標題$} -->
+        <h2 class="w-100 float-start m-3 text-black">單點</h2>
+        <div class="w-25 float-start p-2">
+            <!-- 父層相對定位 -->
+            <div class="position-relative bg-2 rounded-top overflow-hidden">
+                <img id="sig_img1" src="./images/single_meal/新增資料夾/sig_img1.jpg" alt="" class="w-100 ">
+                <p id="sig_pay1" class="position-absolute tag">$90</p>
+                <a class="position-absolute tag1" onclick="buy(1)"><i class="fa-solid fa-cart-shopping"></i></a>
+            </div>
+            <p class="text-center bg-2 p-1 rounded-bottom text-white">原味起司燻雞捲</p>
+        </div>
+        <div class="w-25 float-start p-2">
+            <div class="position-relative bg-2 rounded-top overflow-hidden">
+                <img id="sig_img2" src="./images/single_meal/新增資料夾/sig_img2.jpg" alt="" class="w-100">
+                <p id="sig_pay2" class="position-absolute tag">$125</p>
+                <a class="position-absolute tag1" onclick="buy(2)"><i class="fa-solid fa-cart-shopping"></i></a>
+            </div>
+            <p class="text-center bg-2 p-1 rounded-bottom text-white">墨西哥莎莎雞腿捲</p>
+        </div>
+        <div class="w-25 float-start p-2">
+            <div class="position-relative bg-2 rounded-top overflow-hidden">
+                <img id="sig_img3" src="./images/single_meal/新增資料夾/sig_img3.jpg" alt="" class="w-100">
+                <p id="sig_pay3" class="position-absolute tag">$129</p>
+                <a class="position-absolute tag1" onclick="buy(3)"><i class="fa-solid fa-cart-shopping"></i></a>
+            </div>
+            <p class="text-center bg-2 p-1 rounded-bottom text-white">粽香脆雞組</p>
+        </div>
+        <div class="w-25 float-start p-2">
+            <div class="position-relative bg-2 rounded-top overflow-hidden">
+                <img id="sig_img4" src="./images/single_meal/新增資料夾/sig_img4.jpg" alt="" class="w-100">
+                <p id="sig_pay4" class="position-absolute tag">$90</p>
+                <a class="position-absolute tag1" onclick="buy(4)"><i class="fa-solid fa-cart-shopping"></i></a>
+            </div>
+            <p class="text-center bg-2 p-1 rounded-bottom text-white">花生起司雞柳捲</p>
+        </div>
+        <div class="w-25 float-start p-2">
+            <div class="position-relative bg-2 rounded-top overflow-hidden">
+                <img id="sig_img5" src="./images/single_meal/新增資料夾/sig_img5.jpg" alt="" class="w-100">
+                <p id="sig_pay5" class="position-absolute tag">$69</p>
+                <a class="position-absolute tag1" onclick="buy(5)"><i class="fa-solid fa-cart-shopping"></i></a>
+            </div>
+            <p class="text-center bg-2 p-1 rounded-bottom text-white">上校薄皮嫩雞</p>
+        </div>
+        <div class="w-25 float-start p-2">
+            <div class="position-relative bg-2 rounded-top overflow-hidden">
+                <img id="sig_img6" src="./images/single_meal/新增資料夾/sig_img6.jpg" alt="" class="w-100">
+                <p id="sig_pay6" class="position-absolute tag">$69</p>
+                <a class="position-absolute tag1" onclick="buy(6)"><i class="fa-solid fa-cart-shopping"></i></a>
+            </div>
+            <p class="text-center bg-2 p-1 rounded-bottom text-white">上校薄脆雞</p>
+        </div>
+        <div class="w-25 float-start p-2">
+            <div class="position-relative bg-2 rounded-top overflow-hidden">
+                <img id="sig_img7" src="./images/single_meal/新增資料夾/sig_img7.jpg" alt="" class="w-100">
+                <p id="sig_pay7" class="position-absolute tag">$98</p>
+                <a class="position-absolute tag1" onclick="buy(7)"><i class="fa-solid fa-cart-shopping"></i></a>
+            </div>
+            <p class="text-center bg-2 p-1 rounded-bottom text-white">上校雞塊8塊.</p>
+        </div>
+        <div class="w-25 float-start p-2">
+            <div class="position-relative bg-2 rounded-top overflow-hidden">
+                <img id="sig_img8" src="./images/single_meal/新增資料夾/sig_img8.jpg" alt="" class="w-100">
+                <p id="sig_pay8" class="position-absolute tag">$69</p>
+                <a class="position-absolute tag1" onclick="buy(8)"><i class="fa-solid fa-cart-shopping"></i></a>
+            </div>
+            <p class="text-center bg-2 p-1 rounded-bottom text-white">咔啦脆雞-(中辣)</p>
+        </div>
+        <div class="w-25 float-start p-2">
+            <div class="position-relative bg-2 rounded-top overflow-hidden">
+                <img id="sig_img9" src="./images/single_meal/新增資料夾/sig_img9.jpg" alt="" class="w-100">
+                <p id="sig_pay9" class="position-absolute tag">$115</p>
+                <a class="position-absolute tag1" onclick="buy(9)"><i class="fa-solid fa-cart-shopping"></i></a>
+            </div>
+            <p class="text-center bg-2 p-1 rounded-bottom text-white">咔啦雞腿堡</p>
+        </div>
+        <div class="w-25 float-start p-2">
+            <div class="position-relative bg-2 rounded-top overflow-hidden">
+                <img id="sig_img10" src="./images/single_meal/新增資料夾/sig_img10.jpg" alt="" class="w-100">
+                <p id="sig_pay10" class="position-absolute tag">$147</p>
+                <a class="position-absolute tag1" onclick="buy(10)"><i class="fa-solid fa-cart-shopping"></i></a>
+            </div>
+            <p class="text-center bg-2 p-1 rounded-bottom text-white">松露起司圈咔啦雞腿堡</p>
+        </div>
+        <div class="w-25 float-start p-2">
+            <div class="position-relative bg-2 rounded-top overflow-hidden">
+                <img id="sig_img11" src="./images/single_meal/新增資料夾/sig_img11.jpg" alt="" class="w-100">
+                <p id="sig_pay11" class="position-absolute tag">$117</p>
+                <a class="position-absolute tag1" onclick="buy(11)"><i class="fa-solid fa-cart-shopping"></i></a>
+            </div>
+            <p class="text-center bg-2 p-1 rounded-bottom text-white">紐奧良烤堡</p>
+        </div>
+        <div class="w-25 float-start p-2">
+            <div class="position-relative bg-2 rounded-top overflow-hidden">
+                <img id="sig_img12" src="./images/single_meal/新增資料夾/sig_img12.jpg" alt="" class="w-100">
+                <p id="sig_pay12" class="position-absolute tag">$99</p>
+                <a class="position-absolute tag1" onclick="buy(12)"><i class="fa-solid fa-cart-shopping"></i></a>
+            </div>
+            <p class="text-center bg-2 p-1 rounded-bottom text-white">美式煙燻咔脆雞堡</p>
+        </div>
+        <div class="w-25 float-start p-2">
+            <div class="position-relative bg-2 rounded-top overflow-hidden">
+                <img id="sig_img13" src="./images/single_meal/新增資料夾/sig_img13.jpg" alt="" class="w-100">
+                <p id="sig_pay13" class="position-absolute tag">$143</p>
+                <a class="position-absolute tag1" onclick="buy(13)"><i class="fa-solid fa-cart-shopping"></i></a>
+            </div>
+            <p class="text-center bg-2 p-1 rounded-bottom text-white">義式香草紙包雞</p>
+        </div>
+        <div class="w-25 float-start p-2">
+            <div class="position-relative bg-2 rounded-top overflow-hidden">
+                <img id="sig_img14" src="./images/single_meal/新增資料夾/sig_img14.jpg" alt="" class="w-100">
+                <p id="sig_pay14" class="position-absolute tag">$147</p>
+                <a class="position-absolute tag1" onclick="buy(14)"><i class="fa-solid fa-cart-shopping"></i></a>
+            </div>
+            <p class="text-center bg-2 p-1 rounded-bottom text-white">花生熔岩卡啦雞腿堡</p>
+        </div>
+        <div class="w-25 float-start p-2">
+            <div class="position-relative bg-2 rounded-top overflow-hidden">
+                <img id="sig_img15" src="./images/single_meal/新增資料夾/sig_img15.jpg" alt="" class="w-100">
+                <p id="sig_pay15" class="position-absolute tag">$45</p>
+                <a class="position-absolute tag1" onclick="buy(15)"><i class="fa-solid fa-cart-shopping"></i></a>
+            </div>
+            <p class="text-center bg-2 p-1 rounded-bottom text-white">雞汁風味飯</p>
+        </div>
+        <div class="w-25 float-start p-2">
+            <div class="position-relative bg-2 rounded-top overflow-hidden">
+                <img id="sig_img16" src="./images/single_meal/新增資料夾/sig_img16.jpg" alt="" class="w-100">
+                <p id="sig_pay16" class="position-absolute tag">$125</p>
+                <a class="position-absolute tag1" onclick="buy(16)"><i class="fa-solid fa-cart-shopping"></i></a>
+            </div>
+            <p class="text-center bg-2 p-1 rounded-bottom text-white">青花椒卡啦雞腿堡</p>
+        </div>
+        <div class="w-25 float-start p-2">
+            <div class="position-relative bg-2 rounded-top overflow-hidden">
+                <img id="sig_img17" src="./images/single_meal/新增資料夾/sig_img17.jpg" alt="" class="w-100">
+                <p id="sig_pay17" class="position-absolute tag">$75</p>
+                <a class="position-absolute tag1" onclick="buy(17)"><i class="fa-solid fa-cart-shopping"></i></a>
+            </div>
+            <p class="text-center bg-2 p-1 rounded-bottom text-white">青花椒香麻脆雞單點</p>
+        </div>
+    </div>
+
+
+    <!-- 頁尾 -->
+    <footer>
+        <!-- .footer-logo+ul>li*5>a^^hr+p>a{按鈕}+span{文字}^.social-icon>a^.copyright -->
+        <div class="footer-logo">Capybara Burger</div>
+
+        <div class="social-icon text-center">
+            <a href="#"><i class="fa-brands fa-facebook"></i></a>
+            <a href="#"><i class="fa-brands fa-youtube"></i></a>
+            <a href="#"><i class="fa-brands fa-line"></i></a>
+        </div>
+
+        <!-- &copy; 特殊字元 -->
+        <div class="copyright text-center">&copy; 此網站為練習使用，不做商業用途</div>
+
+    </footer>
+
+    <!-- <a href="#" class="booking">已選購餐點</a> -->
+    <!-- a.pagetop{Top} -->
+    <a href="#" class="pagetop">Top</a>
+
+
+    <div id="myForm_div">
+
+
+        <div id="myForm" class="form-popup border bg-light rounded-top" data-bs-backdrop="static">
+            <div class="row flex-nowrap justify-content-between align-items-center">
+                <div class="col-4 text-center">
+                    <img onclick="resetForm()" src="https://storage.googleapis.com/kfcoosfs/i_reset.png">
+                </div>
+                <div class="col-4 text-center">
+                    <h2>篩選條件</h2>
+                </div>
+                <div class="col-4 text-center">
+                    <img onclick="closeForm()" src="https://storage.googleapis.com/kfcoosfs/i_close_btn.png">
+                </div>
+            </div>
+            <h6 class="text-center">請擇一條件進行篩選</h6>
+
+
+            <button type="button" class="collapsible">產品種類</button>
+
+            <div class="content">
+                <!-- 4欄排版.靠左浮動*4>.背景.內邊界>.寬100+標題 -->
+                <!-- .w-25.float-left*4>.bg-primary.p-3>img.w-100+p{產品標題$} -->
+                <div class="w-50 float-start">
+                    <!-- 父層相對定位 -->
+                    <label>
+                        <input type="checkbox" class="me-1">期間限定
+                    </label>
+                </div>
+                <div class="w-50 float-start">
+                    <label>
+                        <input type="checkbox" class="me-1">甜點
+                    </label>
+                </div>
+                <div class="w-50 float-start">
+                    <label>
+                        <input type="checkbox" class="me-1">炸雞
+                    </label>
+                </div>
+                <div class="w-50 float-start">
+                    <label>
+                        <input type="checkbox" class="me-1">附餐
+                    </label>
+                </div>
+                <div class="w-50 float-start">
+                    <label>
+                        <input type="checkbox" class="me-1">紙包雞
+                    </label>
+                </div>
+                <div class="w-50 float-start">
+                    <label>
+                        <input type="checkbox" class="me-1">沙拉
+                    </label>
+                </div>
+                <div class="w-50 float-start">
+                    <label>
+                        <input type="checkbox" class="me-1">漢堡
+                    </label>
+                </div>
+                <div class="w-50 float-start">
+                    <label>
+                        <input type="checkbox" class="me-1">飲品
+                    </label>
+                </div>
+                <div class="w-50 float-start">
+                    <label>
+                        <input type="checkbox" class="me-1">捲餅
+                    </label>
+                </div>
+                <div class="w-50 float-start">
+                    <label>
+                        <input type="checkbox" class="me-1">早餐
+                    </label>
+                </div>
+                <div class="w-50 float-start">
+                    <label>
+                        <input type="checkbox" class="me-1">蛋塔
+                    </label>
+                </div>
+            </div>
+
+            <button type="button" class="collapsible">口味</button>
+
+            <div class="content">
+                <!-- 4欄排版.靠左浮動*4>.背景.內邊界>.寬100+標題 -->
+                <!-- .w-25.float-left*4>.bg-primary.p-3>img.w-100+p{產品標題$} -->
+                <div>
+                    <!-- 父層相對定位 -->
+                    <label>
+                        <input type="checkbox" class="me-1">辣
+                    </label>
+                </div>
+                <div>
+                    <label>
+                        <input type="checkbox" class="me-1">不辣
+                    </label>
+                </div>
+            </div>
+
+            <button type="button" class="collapsible">用餐人數</button>
+
+            <div class="content">
+                <!-- 4欄排版.靠左浮動*4>.背景.內邊界>.寬100+標題 -->
+                <!-- .w-25.float-left*4>.bg-primary.p-3>img.w-100+p{產品標題$} -->
+                <div class="w-50 float-start">
+                    <!-- 父層相對定位 -->
+                    <label>
+                        <input type="checkbox" class="me-1">1人
+                    </label>
+                </div>
+                <div class="w-50 float-start">
+                    <label>
+                        <input type="checkbox" class="me-1">3-5人
+                    </label>
+                </div>
+                <div class="w-50 float-start">
+                    <label>
+                        <input type="checkbox" class="me-1">2人
+                    </label>
+                </div>
+                <div class="w-50 float-start">
+                    <label>
+                        <input type="checkbox" class="me-1">6人以上
+                    </label>
+                </div>
+            </div>
+
+            <button type="button" class="collapsible">熱門搜尋</button>
+
+            <div class="content">
+                <!-- 4欄排版.靠左浮動*4>.背景.內邊界>.寬100+標題 -->
+                <!-- .w-25.float-left*4>.bg-primary.p-3>img.w-100+p{產品標題$} -->
+                <div>
+                    <!-- 父層相對定位 -->
+                    <label>
+                        <input type="checkbox" class="me-1">PK會員專屬
+                    </label>
+                </div>
+                <div>
+                    <label>
+                        <input type="checkbox" class="me-1">預訂快取+1元多1件
+                    </label>
+                </div>
+            </div>
+
+            <button onclick="confirmCheckbox()" type="button" class="btn btn-danger m-2 w-100">確認篩選</button>
+
+        </div>
+    </div>
+
+
+
+
+
+    <div id="loaddd">
+        <div class="loadingP bg-dark bg-opacity-75">
+            <p>Loading</p>
+        </div>
+        <div class="loadingDiv">
+            <div class="loader"></div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+    <div id="id01" class="modal">
+
+        <form class="modal-content animate" action="/action_page.php" method="post">
+            <div class="imgcontainer">
+                <i class="fa-solid fa-user-astronaut"></i>
+                <span onclick="document.getElementById('id01').style.display='none'" class="close"
+                    title="Close Modal">&times;
+                </span>
+
+            </div>
+
+            <div class="container">
+                <label for="uname"><b>Username</b></label>
+                <input type="text" placeholder="Enter Username" name="uname" required>
+
+                <label for="psw"><b>Password</b></label>
+                <input type="password" placeholder="Enter Password" name="psw" required>
+
+                <button type="submit">Login</button>
+                <label>
+                    <input type="checkbox" name="remember"> Remember me
+                </label>
+            </div>
+
+            <div class="container" style="background-color: rgb(244, 235, 217)">
+                <button type="button" onclick="document.getElementById('id01').style.display='none'"
+                    class="cancelbtn">Cancel</button>
+                <span class="psw">Forgot <a href="#">password?</a></span>
+            </div>
+        </form>
+    </div>
+
+
+
+
+
+
+    <div id="mySidebar" class="sidebar text-white">
+        <i class="fa-solid fa-coins">
+            <span id="coin" class="text-white">$0</span>
+        </i>
+        <button onclick="clearCart()" class="btn btn-warning ms-1" style="width: 240px;">清除購物車</button>
+        <a  href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <div id="mySidebar1"></div>
+    </div>
+
+
+
+
+
+
+
+    <script>
+        function loaddd() {
+            document.getElementById("loaddd").style.display = "block";
+            setTimeout("location.href='./doubledeal.html'", 1000);
+        }
+
+        function openForm() {
+            document.getElementById("myForm_div").style.display = "block";
+        }
+
+        function closeForm() {
+            document.getElementById("myForm_div").style.display = "none";
+        }
+
+        function resetForm() {
+            var checkboxes = document.getElementsByTagName('input')
+            for (var i = 0; i < checkboxes.length; i++) {
+                if (checkboxes[i].type == "checkbox") {
+                    checkboxes[i].checked = false;
+                }
+            }
+        }
+
+        var selectCheck = 0;
+        function confirmCheckbox() {
+            var checkboxes = document.getElementsByTagName('input')
+            for (var i = 0; i < checkboxes.length; i++) {
+                if (checkboxes[i].type == "checkbox") {
+                    if (checkboxes[i].checked == true) {
+                        selectCheck = 1;
+                    }
+                }
+            }
+            console.log(selectCheck)
+            if (selectCheck == 1) {
+                loaddd();
+            }
+            else {
+                alert("請選擇搜尋條件")
+            }
+
+        }
+
+        var coll = document.getElementsByClassName("collapsible");
+        var i;
+
+        for (i = 0; i < coll.length; i++) {
+            coll[i].addEventListener("click", function () {
+                this.classList.toggle("active1");
+                var content = this.nextElementSibling;
+                if (content.style.maxHeight) {
+                    content.style.maxHeight = null;
+                } else {
+                    content.style.maxHeight = content.scrollHeight + "px";
+                }
+            });
+        }
+
+
+
+
+
+
+
+
+
+        // Get the modal
+        var modal = document.getElementById('id01');
+
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function (event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+
+
+
+
+
+        /* Set the width of the sidebar to 250px and the left margin of the page content to 250px */
+        function openNav() {
+            document.getElementById("mySidebar").style.width = "250px";
+            document.getElementById("boddy").style.marginRight = "250px";
+            document.getElementById("blog_top").style.marginRight = "18.6%";
+            document.getElementById("blog_top").style.marginLeft = "2.3%";
+            bbb();
+        }
+
+        /* Set the width of the sidebar to 0 and the left margin of the page content to 0 */
+        function closeNav() {
+            document.getElementById("mySidebar").style.width = "0";
+            document.getElementById("boddy").style.marginRight = "0";
+            document.getElementById("blog_top").style.marginRight = "11%";
+            document.getElementById("blog_top").style.marginLeft = "11%";
+        }
+
+
+
+    </script>
+    <script  src="./singledeal.js"></script>
+</body>
+
+</html>
